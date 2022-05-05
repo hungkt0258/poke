@@ -1,0 +1,80 @@
+<div id="appHeader" class="header-container">
+  <nav class="navbar navbar-dark navbar-expand-md">
+    <!-- <a class="navbar-brand" (click)="handleNavigateByUrl('/')"> VINBUS </a> -->
+    <img
+      class="navbar-brand"
+      src="assets/images/logopoke.png"
+      alt="logo"
+    />
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#"
+      aria-controls=""
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="isCollapsed = !isCollapsed"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav">
+        <li
+          class="nav-item"
+          ngbDropdown
+          #dropDownGame="ngbDropdown"
+          (mouseenter)="dropDownGame.open()"
+          (mouseleave)="dropDownGame.close()"
+        >
+          <a class="nav-link" translate ngbDropdownToggle>Games </a>
+          <div
+            class="dropdown-container"
+            style="left: 0 !important"
+            ngbDropdownMenu
+            (mouseleave)="dropDownGame.close()"
+            (mouseenter)="dropDownGame.open()"
+          >
+            <ng-container *ngFor="let item of listGame">
+              <button type="button" class="btn btn-transparent" ngbDropdownItem>
+                <!-- (click)="navigate('name')" -->
+                {{ item.name }}
+              </button>
+            </ng-container>
+          </div>
+        </li>
+        <li
+          class="nav-item"
+          ngbDropdown
+          #dropDownGeneration="ngbDropdown"
+          (mouseenter)="dropDownGeneration.open()"
+          (mouseleave)="dropDownGeneration.close()"
+        >
+          <a class="nav-link" translate ngbDropdownToggle>Generations </a>
+          <div
+            class="dropdown-container"
+            style="left: 0 !important"
+            ngbDropdownMenu
+            (mouseleave)="dropDownGeneration.close()"
+            (mouseenter)="dropDownGeneration.open()"
+          >
+            <ng-container *ngFor="let item of listGeneration">
+              <button type="button" class="btn btn-transparent" ngbDropdownItem>
+                <!-- (click)="navigate('name')" -->
+                {{ item.name }}
+              </button>
+            </ng-container>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" translate >Locations </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" translate >Items </a>
+        </li>
+
+        <div class="site-spacer-light-90 only-xs mg-auto"></div>
+      </ul>
+    </div>
+  </nav>
+</div>

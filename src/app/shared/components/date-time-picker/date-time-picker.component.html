@@ -1,0 +1,21 @@
+<div class="input-group mr-2 div_calendar">
+    <input class="form-control input-calendar input-group text-date-show"
+      [disabled]="isDisabled"
+      [placeholder]="placeholder" 
+      name="daterangeInput" 
+      daterangepicker 
+      [options]="options"
+      (selected)="selectedDate($event)"
+      (change)="onDateChange($event)"
+    />
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-secondary icon-calendar border_btn_calendar"
+        (click)="triggerOpenDatePicker()"
+        [disabled]="isDisabled"
+        type="button"
+      >
+        <fa-icon class="icon" [icon]="faCalendarAlt"></fa-icon>
+      </button>
+    </div>
+  </div>

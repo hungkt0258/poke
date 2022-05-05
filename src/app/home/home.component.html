@@ -1,0 +1,53 @@
+<div class="home-container">
+  <div class="home-cta">
+    <div class="text-info">
+      4 © 2022 Hash Consulting Grp Pte. Ltd. All rights reserved. Proprietary
+      and confidential – further reproduction or distribution is prohibited. HCG
+      Interview Test - Frontend 2022 v1.0
+    </div>
+  </div>
+  <div class="home-slider-video">
+    <div class="slider-video-container">
+      <ng-image-slider
+        #nav
+        [images]="arrVideo"
+        [infinite]="true"
+        [autoSlide]="1"
+        [imageSize]="{ width: '33%', height: 300 }"
+        [manageImageRatio]="true"
+        slideImage="1"
+      ></ng-image-slider>
+    </div>
+  </div>
+  <div class="home-pokemon-list">
+    <div class="title-pokemon-list"><div class="text">Pokémon</div></div>
+    <div class="pokemon-container">
+      <ng-container *ngFor="let item of arrPoke">
+        <div class="pokemon-item">
+          <img
+            class="img-pokemon"
+            [src]="item.sprites.front_default"
+            alt=""
+            (click)="openDialogPokemonDetail(item)"
+          />
+          <div class="name-pokemon" (click)="openDialogPokemonDetail(item)">
+            {{ item.name }}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="home-items-list">
+    <div class="title-items-list"><div class="text">Items</div></div>
+    <div class="items-container">
+      <ng-container *ngFor="let item of arrItems">
+        <div class="items">
+          <img class="img-items" [src]="item.sprites.default" alt="" />
+          <div class="name-items">
+            {{ item.name }}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

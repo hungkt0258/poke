@@ -1,0 +1,31 @@
+$green: #257A37;
+$green-2: hsl(152, 56%, 46%);
+
+.text-date-show {
+    // border: 1px solid #E9E9E9;
+    background: white;
+    // padding: 10px 25px;
+    position: relative;
+    z-index: 2;
+    border-radius: 8px;
+    // box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    // margin-right: 15px;
+    min-width: 250px;
+    text-align: center;
+}
+.uneditable-input {
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    span {
+        font-size: 14px;
+    }
+}
+
+.reset-btn {
+    right: 5px;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

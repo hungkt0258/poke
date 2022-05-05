@@ -1,0 +1,19 @@
+<div class="pokemon-container">
+  <div class="title"><div class="text">Pokémon Details</div></div>
+  <div class="info-container">
+    <div class="poke-info">
+      <img
+        class="img-pokemon"
+        [src]="local_data.sprites.front_default"
+        alt=""
+      />
+      <div class="name-pokemon">
+        {{ local_data.name }}
+      </div>
+      <div><span> Type:</span>{{ local_data.types[0].type.name }}</div>
+      <div><span> Height:</span>{{ local_data.height }}</div>
+      <div><span> Health:</span>{{ local_data.stats[0].base_stat }}</div>
+      <div><span> Attack Power:</span>{{ local_data.stats[1].base_stat }}</div>
+    </div>
+  </div>
+</div>

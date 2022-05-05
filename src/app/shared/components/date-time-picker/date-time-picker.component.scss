@@ -1,0 +1,63 @@
+$green-2: hsl(152, 56%, 46%);
+
+::ng-deep {
+  .ngb-tp {
+    justify-content: center;
+  }
+  .fa {
+    display: inline-block;
+    // font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+  }
+  .fa-calendar:before {
+    content: "\f073";
+  }
+}
+
+.div_calendar {
+  align-items: flex-end;
+}
+  
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+  width: 2rem;
+}
+
+.custom-day:hover,
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+
+.today {
+  background-color: #f0ad4e;
+  border-radius: 1rem;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.icon-calendar {
+  font-size: 1em;
+}
+.input-calendar {
+  width: 10rem;
+  font-size: 1em;
+  height: 29px;
+}
+.border_btn_calendar {
+  border: 1px solid #ced4da;
+  padding-top: 0.25rem;
+  height: 29px;
+}
+.input-group {
+  margin-top: -5px;
+}
+

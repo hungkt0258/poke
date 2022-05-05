@@ -1,0 +1,37 @@
+.pokemon-container {
+  .title {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        269.93deg,
+        #10af7e 0%,
+        rgba(0, 219, 126, 0) 100%
+      ),
+      #10af7e;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px 10px 0 0;
+    .text {
+      padding: 90px;
+    }
+  }
+  .info-container {
+    display: flex;
+    //   align-items: center;
+    justify-content: center;
+    .poke-info {
+        .name-pokemon {
+            line-height: 38px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        span {
+            line-height: 38px;
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+  }
+}
