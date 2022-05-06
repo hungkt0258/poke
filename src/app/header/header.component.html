@@ -2,6 +2,7 @@
   <nav class="navbar navbar-dark navbar-expand-md">
     <!-- <a class="navbar-brand" (click)="handleNavigateByUrl('/')"> VINBUS </a> -->
     <img
+      (click)="navigate('/')"
       class="navbar-brand"
       src="assets/images/logopoke.png"
       alt="logo"
@@ -67,12 +68,20 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" translate >Locations </a>
+          <a class="nav-link" translate>Locations </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" translate >Items </a>
+          <a class="nav-link" translate>Items </a>
         </li>
-
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="navigate('poke-list')"
+            [ngClass]="{ active: currentUrl.includes('/poke-list')}"
+            translate
+            >Pokémon List</a
+          >
+        </li>
         <div class="site-spacer-light-90 only-xs mg-auto"></div>
       </ul>
     </div>

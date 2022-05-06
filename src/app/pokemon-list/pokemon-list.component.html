@@ -1,0 +1,46 @@
+<div class="items-container">
+  <div class="items-cta">
+    <div class="text-info">Pokémon List</div>
+  </div>
+</div>
+<div class="grid-container">
+  <div class="grid-poke">
+    <div class="input-search-name"> <input (keyup)="searchPoke($event.target.value)" class="form-control" placeholder="Input Pokemon Name" type="text"></div>
+    <mat-card>
+      <mat-card-content>
+        <div class="table-responsive">
+          <mat-grid-list cols="5" rowHeight="1:1">
+            <mat-grid-tile class="grid-custom" *ngFor="let item of pageList">
+              <div class="pokemon-item">
+                <img
+                  class="img-pokemon"
+                  [src]="item.sprites.front_default"
+                  alt=""
+                  (click)="openDialogPokemonDetail(item)"
+                />
+                <div
+                  class="name-pokemon"
+                  (click)="openDialogPokemonDetail(item)"
+                >
+                  {{ item.name }}
+                </div>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <!-- <table mat-table [dataSource]="dataSource" class="table">
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table> -->
+          <mat-paginator
+            [length]="pageItemsLength"
+            [pageSize]="[pageSize]"
+            showFirstLastButtons
+            (page)="pageEvent = OnPageChange($event)"
+            [pageSizeOptions]="[5, 10, 20, 50, 100]"
+          ></mat-paginator>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

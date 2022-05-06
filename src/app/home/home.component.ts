@@ -1,3 +1,4 @@
+import { LoadingService } from "./../services/loading.service";
 import { MatDialog } from "@angular/material/dialog";
 import { ApiServices } from "./../services/api.service";
 import { Component, OnInit } from "@angular/core";
@@ -26,13 +27,19 @@ export class HomeComponent implements OnInit {
   ];
   arrPoke = [];
   arrItems = [];
-  constructor(private api: ApiServices, private dialog: MatDialog) {}
+  loadingPoke: boolean = true;
+  loadingItems: boolean = true;
+  constructor(
+    private api: ApiServices,
+    private dialog: MatDialog,
+    private loading: LoadingService
+  ) {}
 
   ngOnInit(): void {
     this.getPokemon();
     this.getItemsPoke();
   }
-
+  ngAfterViewInit() {}
   openDialogPokemonDetail(dataPoke) {
     const dialog = this.dialog.open(DetailPokemonDialogComponent, {
       panelClass: "detail-pokemon",
@@ -41,23 +48,26 @@ export class HomeComponent implements OnInit {
   }
 
   async getPokemon() {
+    this.loading.on();
     await this.api.getPokemon(10, 10).subscribe((response: any) => {
       response.results.map((each: any) => {
         this.api.getDetailPokemon(each.name).subscribe((eachPoke: any) => {
           this.arrPoke.push(eachPoke);
         });
       });
+      this.loading.off();
     });
   }
 
   async getItemsPoke() {
+    this.loading.on();
     await this.api.getItemsPokemon(10, 10).subscribe((response: any) => {
       response.results.map((each: any) => {
         this.api.getDetailItems(each.name).subscribe((eachPoke: any) => {
           this.arrItems.push(eachPoke);
         });
       });
-      console.log(this.arrItems);
+      this.loading.off();
     });
   }
 }

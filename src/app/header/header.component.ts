@@ -1,13 +1,8 @@
 import { ApiServices } from "./../services/api.service";
-import { Component, NgModule, OnInit, ViewChild } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
-import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
-import { ToastrService } from "ngx-toastr";
+import { Component, OnInit } from "@angular/core";
 import $ from "jquery";
-import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
-import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
 import { Subject } from "rxjs";
-import { RoleConfig } from "../utils/constant";
+import { Router,NavigationEnd, NavigationCancel} from "@angular/router";
 
 @Component({
   selector: "app-header",
@@ -18,9 +13,14 @@ export class HeaderComponent implements OnInit {
   listGame: any;
   listGeneration: any;
   private ngUnsubscribe = new Subject();
-
-  constructor(private api: ApiServices) {}
+  currentUrl: string = "";
+  constructor(private api: ApiServices, private router: Router) {}
   ngOnInit() {
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd || e instanceof NavigationCancel) {
+        this.currentUrl = e.url;
+      }
+    });
     this.getListPokemon();
     this.getGeneration();
   }
@@ -37,7 +37,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnDestroy() {}
-
+  navigate(target) {
+    this.router.navigate([target]);
+  }
   getListPokemon() {
     this.api.getListPokemon(null, null).subscribe((response: any) => {
       this.listGame = response.results;

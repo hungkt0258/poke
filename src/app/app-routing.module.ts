@@ -6,6 +6,10 @@ const routes: Routes = [
     path: "",
     loadChildren: () => import("./home/home.module").then((m) => m.HomeModule),
   },
+  {
+    path: "poke-list",
+    loadChildren: () => import("./pokemon-list/pokemon-list.module").then((m) => m.PokemonListModule),
+  },
   { path: "**", redirectTo: "" },
 ];
 

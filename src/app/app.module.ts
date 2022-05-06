@@ -21,12 +21,14 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 import { NgxImageZoomModule } from "ngx-image-zoom";
 import { HomeModule } from "./home/home.module";
+import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     NgxImageZoomModule,
     BrowserModule,
